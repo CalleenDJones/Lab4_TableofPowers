@@ -11,9 +11,10 @@ namespace Lab4_TableofPowers
 
             //Introduction to user
             Console.WriteLine("Greetings! Learn your Squares and Cubes!");
+            string input = "";
 
             //WHILE Loop begins before the request for information from user
-            while (true)
+            do
             {
                 //Request of information from user
                 Console.WriteLine("Please enter an integer: ");
@@ -29,38 +30,33 @@ namespace Lab4_TableofPowers
                 //for(initialization; Boolean Expression, Update)
                 for (int i = 1; i <= Num1; i++)
                 {
-                    Console.WriteLine("\n\n" + i + "\t\t" + (i * i) + "\t\t" + (i * i * i));
-                }
-
-
-                //Ask user if they would like to continue
-                Console.WriteLine("\n\nWould you like to continue? Please enter Y or N");
-                //Converts the user's input to Uppercase
-                string input = (Console.ReadLine().ToUpper());
-                
-                //Based on the user's response, the program will continue or exit.
-                //Completes the WHILE Loop
-                if (input == "Y")
-                {
-                    continue;
+                    Console.WriteLine("\n" + i + "\t\t" + (i * i) + "\t\t" + (i * i * i));
                 }
                 
-                else
+                do
                 {
-                    break;
-                }
-            }
-            //Thank user for participating
+                    //Ask user if they would like to continue
+                    Console.WriteLine("\n\nWould you like to continue? Please enter Y or N");
+                    //Converts the user's input to Uppercase
+                    input = (Console.ReadLine().ToUpper());
+
+                    //Based on the user's response, the program will continue or exit.
+
+                    if (input != "Y" && (input != "N"))
+                    {
+                        Console.WriteLine("Invalid response. Please enter Y or No.");
+                    }
+                } while (input != "Y" && input != "N");
+
+            } while (input == "Y");
+
+            //Completes the WHILE Loop
+
+            //Thank the user for participating
             Console.WriteLine("\nThank you for participating! Press enter to exit.");
-            Console.ReadKey();
 
+            Console.ReadKey();
         }
 
-
-
-
-
-
-           
     }
 }
